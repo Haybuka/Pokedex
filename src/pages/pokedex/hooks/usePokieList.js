@@ -1,35 +1,36 @@
 import { useEffect, useState } from 'react'
 import axios from '../../../api/index'
-const useTypeHook = () => {
+const usePokieList = () => {
 
   const [loading, setLoading] = useState(false)
-  const [pokemonTypes, setPokemonTypes] = useState([])
+  const [pokemons, setPokemons] = useState([])
   const [error, setError] = useState(null)
 
-  const getPokemonTypes = async () => {
+  const getPokemonList = async () => {
     setLoading(true)
     try {
-      const response = await axios("type/")
+      const response = await axios("pokemon?offset=0&limit=20")
       console.log(response)
-      setPokemonTypes(response?.data?.results)
+      setPokemons(response?.data?.results)
     } catch (error) {
       setError(error.message)
+      setPokemons([])
     }
     setLoading(false)
   }
 
   useEffect(() => {
-    getPokemonTypes()
+    getPokemonList()
   }, [])
 
 
   return (
     {
       loading,
-      pokemonTypes,
+      pokemons,
       error
     }
   )
 }
 
-export default useTypeHook
+export default usePokieList

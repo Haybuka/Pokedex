@@ -1,16 +1,18 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-import pokeIcon from './assets/pokemon.svg'
+
 import SearchInput from './search'
 import PokieTypesList from './pokieTypesList'
-import PokieCard from './pokieCard'
+import PokieCardList from './pokieCardList'
+import Header from './header'
 const Pokedex = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Pokedex</Text>
+      {/* <Text style={styles.header}>Pokédex</Text> */}
+      <Header />
       <SearchInput />
-      <PokieTypesList />
-      <PokieCard />
+      {/* <PokieTypesList /> */}
+      <PokieCardList />
 
 
     </View>

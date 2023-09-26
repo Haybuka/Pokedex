@@ -1,19 +1,16 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import { padTo } from '../../utils/padTo'
+import { randomBackground } from '../../utils/randomRgb'
+import elevation from '../../utils/elevation'
+import { useNavigation } from '@react-navigation/native'
 
 const PokieCard = ({ name, url }) => {
-  const randomNumbers = () => {
-    const r = Math.floor(Math.random() * 255) + 1
-    const g = Math.floor(Math.random() * 255) + 1
-    const b = Math.floor(Math.random() * 255) + 1
-    const a = Math.floor(Math.random()) + 1
-    return `rgba(${r},${g},${b},${a})`
-  }
-
+  const navigation = useNavigation()
+  // console.log({ navigation })
 
   return (
-    <TouchableOpacity style={[styles.container, { backgroundColor: randomNumbers() }]}>
+    <TouchableOpacity onPress={() => navigation.navigate("About", { name })} style={[styles.container, styles.elevation, { backgroundColor: randomBackground() }]}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -34,20 +31,15 @@ const PokieCard = ({ name, url }) => {
 export default PokieCard
 
 const styles = StyleSheet.create({
+  elevation,
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 40,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    shadowOffset: {
-      width: 5,
-      height: 10
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
     elevation: 5,
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     flexDirection: 'row',
     gap: 10,
   },

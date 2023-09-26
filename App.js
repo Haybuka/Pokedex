@@ -1,22 +1,29 @@
-// import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, StatusBar, ScrollView } from 'react-native';
-import Pokedex from './src/pages/pokedex';
 
-export default function App() {
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+import HomeScreen from './src/pages/pokedex/screen/homeScreen';
+import AboutScreen from './src/pages/pokedex/screen/aboutScreen';
+
+
+
+
+
+const Pokemon = () => {
   return (
-    <SafeAreaView style={styles.container}>
-
-      <Pokedex />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+        // options={{ title: 'Home' }}
+        />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: StatusBar.currentHeight,
-
-  },
-});
+export default Pokemon

@@ -1,16 +1,17 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { padTo } from '../../utils/padTo'
 import pokeIcon from './assets/pokemon.svg'
+import SearchInput from './search'
+import PokieTypesList from './pokieTypesList'
+import PokieCard from './pokieCard'
 const Pokedex = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.header}>Pokedex</Text>
-      <Image
-        style={styles.image}
-        source={{ uri: `http://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padTo('https://pokeapi.co/api/v2/pokemon/6/')}.png` }}
-        resizeMode='contain'
-      />
+      <SearchInput />
+      <PokieTypesList />
+      <PokieCard />
+
 
     </View>
   )
@@ -20,7 +21,7 @@ export default Pokedex
 
 const styles = StyleSheet.create({
   container: {
-
+    // paddingHorizontal: 10
   },
   header: {
     fontSize: 20,

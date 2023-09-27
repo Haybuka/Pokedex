@@ -23,16 +23,20 @@ const Pokemon = () => {
         <Stack.Screen
           name="About"
           component={AboutScreen}
-          options={{
-            title: ' ',
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
+
+          options={
+            ({ route }) => (
+              {
+                title: route.params.name[0].toUpperCase() + route.params.name.slice(1),
+                headerTitleStyle: {
+                  // textTransform: 'capitalize',
+                  // color: 'red',
+                  fontWeight: 'normal',
+
+                }
+              }
+            )
+          }
         />
       </Stack.Navigator>
     </NavigationContainer>

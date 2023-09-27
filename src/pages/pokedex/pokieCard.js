@@ -8,13 +8,14 @@ import { useNavigation } from '@react-navigation/native'
 const PokieCard = ({ name, url }) => {
   const navigation = useNavigation()
   // console.log({ navigation })
-
+  let padValue = Number(padTo(url))
   return (
     <TouchableOpacity onPress={() => navigation.navigate("About", { name, url })} style={[styles.container, styles.elevation, { backgroundColor: randomBackground() }]}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
-          source={{ uri: `http://assets.pokemon.com/assets/cms2/img/pokedex/detail/${padTo(url)}.png` }}
+
+          source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${padValue}.png` }}
           resizeMode='contain'
         />
       </View>

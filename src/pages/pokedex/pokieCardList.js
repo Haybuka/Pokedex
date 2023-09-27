@@ -7,12 +7,14 @@ const PokieCardList = () => {
   const { loading, pokemons, error } = usePokieList()
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
+
+
   return (
     <View style={styles.container}>
       <FlatList
         ListEmptyComponent={<Text>List Emptied</Text>}
         data={pokemons}
-        horizontal
+        // horizontalx
         keyExtractor={(item) => item?.name}
         ItemSeparatorComponent={<View style={{ marginVertical: 5 }}></View>}
         showsHorizontalScrollIndicator={false}

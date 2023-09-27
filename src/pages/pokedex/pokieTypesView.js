@@ -20,8 +20,10 @@ const PokieTypesView = ({ type }) => {
 
   const { borderColor, emoji, color } = getTypeDetails(type)
   return (
-    <TouchableOpacity style={[styles.container, { backgroundColor: borderColor }]}>
-      <Text style={styles.text}>{emoji} </Text>
+    <TouchableOpacity style={[styles.container, { backgroundColor: borderColor, justifyContent: 'space-between' }]}>
+      <View style={{ backgroundColor: "#fff", borderRadius: 100 }}>
+        <Text style={styles.text}>{emoji} </Text>
+      </View>
       <Text style={[styles.text, { color }]}>{type}</Text>
     </TouchableOpacity>
   )
@@ -32,7 +34,8 @@ export default PokieTypesView
 const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
+    // width: 100,
     paddingVertical: 5,
     shadowOffset: {
       width: 5,

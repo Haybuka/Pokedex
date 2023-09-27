@@ -10,7 +10,7 @@ const PokieCard = ({ name, url }) => {
   // console.log({ navigation })
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("About", { name })} style={[styles.container, styles.elevation, { backgroundColor: randomBackground() }]}>
+    <TouchableOpacity onPress={() => navigation.navigate("About", { name, url })} style={[styles.container, styles.elevation, { backgroundColor: randomBackground() }]}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}

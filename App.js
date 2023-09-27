@@ -18,9 +18,22 @@ const Pokemon = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-        // options={{ title: 'Home' }}
+          options={{ title: "" }}
         />
-        <Stack.Screen name="About" component={AboutScreen} />
+        <Stack.Screen
+          name="About"
+          component={AboutScreen}
+          options={{
+            title: ' ',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

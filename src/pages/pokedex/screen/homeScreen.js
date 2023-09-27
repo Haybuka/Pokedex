@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, StatusBar, SafeAreaView } from 'react-native'
+import { StyleSheet, StatusBar, SafeAreaView, ScrollView } from 'react-native'
 import Header from '../header'
 import SearchInput from '../search'
 import PokieCardList from '../pokieCardList'
@@ -12,8 +12,10 @@ const HomeScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Header />
       <SearchInput />
-      {/* <PokieTypesList /> */}
-      <PokieCardList />
+      <ScrollView>
+        {/* <PokieTypesList /> */}
+        <PokieCardList />
+      </ScrollView>
 
 
     </SafeAreaView>
@@ -33,7 +35,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 10,
     fontWeight: 'bold',
-    textTransform: "uppercase"
+    textTransform: "uppercase",
+
   },
   image: {
     width: 200,

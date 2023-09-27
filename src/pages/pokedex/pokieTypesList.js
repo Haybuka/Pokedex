@@ -4,21 +4,18 @@ import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-nativ
 import useTypeHook from './hooks/useType'
 import PokieTypesView from './pokieTypesView'
 
-const PokieTypesList = () => {
-  const { loading, error, pokemonTypes } = useTypeHook()
-  if (loading) return <ActivityIndicator size={'large'} />
-  if (error) return <View><Text style={{ fontSize: 20 }}>{error}</Text></View>
+const PokieTypesList = ({ data }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Types</Text>
+      <Text style={styles.text}>Type</Text>
       <FlatList
         ListEmptyComponent={<Text>List Emptied</Text>}
-        data={pokemonTypes}
+        data={data}
         keyExtractor={(item) => item?.name}
         horizontal
-        ItemSeparatorComponent={<View style={{ marginHorizontal: 20 }}></View>}
+        ItemSeparatorComponent={<View style={{ margin: 10 }}></View>}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => (<PokieTypesView type={item.name} />)}
+        renderItem={({ item }) => (<PokieTypesView type={item.type.name} />)}
       />
     </View>
   )
@@ -32,7 +29,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 18,
-    marginHorizontal: 10
+    fontSize: 18
   }
 })

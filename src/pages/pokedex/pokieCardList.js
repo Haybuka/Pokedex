@@ -12,6 +12,7 @@ const PokieCardList = () => {
       <FlatList
         ListEmptyComponent={<Text>List Emptied</Text>}
         data={pokemons}
+        horizontal
         keyExtractor={(item) => item?.name}
         ItemSeparatorComponent={<View style={{ marginVertical: 5 }}></View>}
         showsHorizontalScrollIndicator={false}
@@ -28,6 +29,6 @@ export default PokieCardList
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
-    marginBottom: 30
+    marginBottom: 30,
   }
 })

@@ -10,7 +10,6 @@ const usePokieList = () => {
     setLoading(true)
     try {
       const response = await axios("pokemon?offset=0&limit=20")
-      console.log(response)
       setPokemons(response?.data?.results)
     } catch (error) {
       setError(error.message)

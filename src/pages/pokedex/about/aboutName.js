@@ -1,20 +1,20 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Text, View } from 'react-native'
+import { SvgUri } from 'react-native-svg';
 
 const AboutName = ({ name, padValue }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{name}</Text>
-      <View style={{ flexDirection: 'row' }}>
-        <Text >
-          N
-        </Text>
-        <View style={{ position: 'absolute', top: -3, left: 10 }}>
-          <Text>o</Text>
-        </View>
-        <View style={{ marginLeft: 10 }}>
-          <Text>{padValue}</Text>
+      <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
+
+        <SvgUri
+          width={25}
+          height={25}
+          uri={`https://www.svgrepo.com/show/276264/pokeball-pokemon.svg`}
+        />
+        <View >
+          <Text style={styles.name}>{padValue}</Text>
         </View>
       </View>
     </View>
@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
 
   container: { flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" },
   name: {
-    fontSize: 24,
+    fontSize: 30,
     textTransform: 'capitalize',
-    fontWeight: '600'
+    fontWeight: '600',
+    marginLeft: 5
   }
 })

@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     paddingHorizontal: 10,
-    // width: 100,
     paddingVertical: 5,
     shadowOffset: {
       width: 5,
@@ -40,9 +39,3 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize'
   }
 })
-
-// elevation: 5,
-// backgroundColor: 'white',
-// paddingHorizontal: 20,
-// paddingVertical: 10,
-// borderRadius: 20,

@@ -1,7 +1,6 @@
 
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 
-import AboutTypesView from './aboutTypesView'
 import AboutAbilityView from './aboutAbilitiesView'
 
 const AboutAbilitiesList = ({ data }) => {

@@ -6,7 +6,6 @@ import AboutTypesView from './aboutTypesView'
 const AboutTypesList = ({ data }) => {
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.text}>Type</Text> */}
       <FlatList
         ListEmptyComponent={<Text>List Emptied</Text>}
         data={data}

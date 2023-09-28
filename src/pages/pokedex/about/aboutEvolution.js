@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, FlatList, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome } from "@expo/vector-icons"
 import useGetPokemonAbout from '../hooks/useGetPokemonAbout'
 import { padTo } from '../../../utils/padTo'
@@ -35,7 +35,20 @@ const AboutEvolution = ({ open, handleClose, id }) => {
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {
             const padValue = Number(padTo(item?.pokemon.url))
-            return (<Text>{item.pokemon.name} {padValue}</Text>)
+            return (
+              <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 20 }}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${padValue}.png` }}
+                    style={styles.image}
+                    resizeMode='contain'
+                    width={200}
+                    height={200}
+                  />
+                </View>
+                <Text style={{ textAlign: 'center', fontSize: 18, textTransform: 'capitalize' }}>{item.pokemon.name} {padValue}</Text>
+              </View>
+            )
           }}
         />
       </View>
@@ -57,6 +70,23 @@ const styles = StyleSheet.create({
   modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 20
+  },
+  imageContainer: {
+    // paddingHorizontal: 20,
+    paddingVertical: 5,
+    shadowOffset: {
+      width: 5,
+      height: 10
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5,
+    marginVertical: 10,
+    backgroundColor: 'white',
+    borderRadius: 200,
+    shadowColor: 'black',
     alignItems: 'center'
   }
 })

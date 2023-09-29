@@ -7,7 +7,8 @@ import PokieTypesList from '../pokieTypesList'
 
 
 const HomeScreen = ({ navigation }) => {
-  // console.log({ navigation })
+  let x = 1
+  console.log(x)
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -41,6 +42,9 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    shadowOffset: {
+
+    }
   }
 })

@@ -34,6 +34,7 @@ const AboutScreen = ({ route }) => {
   if (error) return <View><Text>{error}</Text></View>
 
   const padValue = Number(padTo(url))
+
   return (
     <ScrollView style={styles.container}>
       <AboutImages padValue={padValue} />
@@ -60,11 +61,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
-    // paddingTop: StatusBar.currentHeight,
   },
   imageContainer: {
     width: "100%",
-    // backgroundColor: 'red'
   },
   name: {
     fontSize: 18,
@@ -74,8 +73,12 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontSize: 18,
-    // marginBottom: 10,
   },
-  activeTab: { backgroundColor: 'white', paddingVertical: 5, paddingHorizontal: 10, borderRadius: 200 }
+  activeTab: {
+    backgroundColor: 'white',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 200
+  }
 
 })

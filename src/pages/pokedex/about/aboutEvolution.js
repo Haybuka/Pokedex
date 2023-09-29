@@ -31,6 +31,7 @@ const AboutEvolution = ({ open, handleClose, id }) => {
           ListEmptyComponent={<Text>List Emptied</Text>}
           data={varieties}
           keyExtractor={(item) => item?.pokemon.name}
+          showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={<View style={{ marginVertical: 5 }}></View>}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {

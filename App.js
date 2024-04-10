@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   QueryClient,
   QueryClientProvider,
-  useQuery,
 } from '@tanstack/react-query'
 
 const Stack = createNativeStackNavigator();
@@ -35,8 +34,6 @@ const Pokemon = () => {
                 {
                   title: route.params.name[0].toUpperCase() + route.params.name.slice(1),
                   headerTitleStyle: {
-                    // textTransform: 'capitalize',
-                    // color: 'red',
                     fontWeight: 'normal',
 
                   }

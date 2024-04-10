@@ -4,8 +4,10 @@ import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-nativ
 import PokieCard from './pokieCard'
 
 
-const PokieCardList = ({ pageNumber }) => {
-  const { loading, pokemons, error } = usePokieList(pageNumber)
+
+const PokieCardList = ({ pokemons, loading, error }) => {
+  // const { loading, pokemons, error } = usePokieList(pageNumber)
+
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
 

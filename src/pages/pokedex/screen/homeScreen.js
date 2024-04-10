@@ -6,13 +6,12 @@ import PokieCardList from '../pokieCardList'
 import { useGetPokemons } from '../../../api/pokemon'
 import { SvgUri } from 'react-native-svg';
 
-
 const HomeScreen = ({ navigation }) => {
 
   const [pageNumber, setPageNumber] = useState(1);
   const [page, setPage] = useState('pokemon?offset=0&limit=20')
   const { data, isError, isLoading } = useGetPokemons(page);
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+
 
   const handlePage = (pageType) => {
     switch (pageType) {
@@ -33,15 +32,12 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
-  const handlePress = () => {
-    setModalIsOpen(prev => !prev)
-  }
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', paddingHorizontal: 10, paddingVertical: 10 }}>
         <View style={{ flexDirection: 'row', gap: 4 }}>
-          <SearchInput shown={false} handlePress={handlePress} />
+          <SearchInput shown={false} handlePress={() => navigation.navigate("Search")} />
           <TouchableOpacity onPress={() => navigation.navigate("Favorite")} style={{ elevation: 3, backgroundColor: "#fff", borderRadius: 20, padding: 10, justifyContent: 'center', alignItems: "center" }}>
             <SvgUri
               width={25}
@@ -80,29 +76,7 @@ const HomeScreen = ({ navigation }) => {
         <PokieCardList pokemons={data?.results} loading={isLoading} error={isError} />
       </ScrollView>
 
-      <Modal visible={modalIsOpen} presentationStyle='overFullScreen' animationType="slide">
-        <ScrollView>
-          <View style={{ flex: 1, padding: 20 }}>
-            <View style={{ flexDirection: "row", justifyContent: 'space-between', alignItems: 'center' }}>
-              <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Search Pokedex</Text>
-              <TouchableOpacity onPress={handlePress} >
-                <SvgUri
-                  width={20}
-                  height={20}
-                  stroke={'red'}
-                  strokeWidth={0.4}
-                  uri={`https://www.svgrepo.com/show/410349/cancel.svg`}
-                />
-              </TouchableOpacity>
-            </View>
 
-            <View style={{ flex: 1 }}>
-              <SearchInput shown={true} handlePress={handlePress} />
-            </View>
-
-          </View>
-        </ScrollView>
-      </Modal>
     </SafeAreaView>
   )
 }

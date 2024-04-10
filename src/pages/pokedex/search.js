@@ -1,16 +1,20 @@
-import React from 'react'
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native'
 import { FontAwesome } from "@expo/vector-icons"
 
 const SearchInput = ({ shown, handlePress }) => {
+
+  const [search, setSearch] = useState('');
   return (
-    shown ? (<TouchableOpacity style={styles.container}>
-      <FontAwesome style={styles.icon} name='search' size={20} />
-      <TextInput style={styles.input} />
-    </TouchableOpacity>) : (
-      <TouchableOpacity onPress={handlePress} style={{ elevation: 3, backgroundColor: "#fff", borderRadius: 20, paddingVertical: 10, paddingHorizontal: 6, justifyContent: 'center', alignItems: "center" }}>
+    shown ? (
+      <TouchableOpacity style={styles.container}>
         <FontAwesome style={styles.icon} name='search' size={20} />
-      </TouchableOpacity>)
+        <TextInput style={styles.input} value={search} onChangeText={setSearch} />
+      </TouchableOpacity>) :
+      (
+        <TouchableOpacity onPress={handlePress} style={{ elevation: 3, backgroundColor: "#fff", borderRadius: 20, paddingVertical: 10, paddingHorizontal: 6, justifyContent: 'center', alignItems: "center" }}>
+          <FontAwesome style={styles.icon} name='search' size={20} />
+        </TouchableOpacity>)
   )
 }
 
@@ -33,6 +37,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 3,
+    position: 'relative'
   },
   icon: {
     marginHorizontal: 10

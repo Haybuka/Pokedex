@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from '../../../api/index'
-const usePokieList = () => {
+const usePokieList = ({ pageNumber = 0 }) => {
 
   const [loading, setLoading] = useState(false)
   const [pokemons, setPokemons] = useState([])
@@ -9,7 +9,7 @@ const usePokieList = () => {
   const getPokemonList = async () => {
     setLoading(true)
     try {
-      const response = await axios("pokemon?offset=0&limit=20")
+      const response = await axios(`pokemon?offset=${pageNumber}&limit=20`)
       setPokemons(response?.data?.results)
     } catch (error) {
       setError(error.message)
@@ -20,7 +20,7 @@ const usePokieList = () => {
 
   useEffect(() => {
     getPokemonList()
-  }, [])
+  }, [pageNumber])
 
 
   return (

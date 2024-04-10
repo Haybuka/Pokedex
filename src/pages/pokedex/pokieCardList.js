@@ -3,8 +3,9 @@ import usePokieList from './hooks/usePokieList'
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
 import PokieCard from './pokieCard'
 
-const PokieCardList = () => {
-  const { loading, pokemons, error } = usePokieList()
+
+const PokieCardList = ({ pageNumber }) => {
+  const { loading, pokemons, error } = usePokieList(pageNumber)
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
 

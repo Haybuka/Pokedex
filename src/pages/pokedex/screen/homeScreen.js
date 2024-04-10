@@ -4,6 +4,7 @@ import Header from '../header'
 import SearchInput from '../search'
 import PokieCardList from '../pokieCardList'
 import { useGetPokemons } from '../../../api/pokemon'
+import { SvgUri } from 'react-native-svg';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -35,12 +36,25 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-      <SearchInput />
-      <View style={styles.paginatedContainer}>
-        <View style={styles.pagination}>
-          <TouchableOpacity onPress={() => handlePage("prev")}><Text style={styles.button}>{`<`}</Text></TouchableOpacity>
-          <Text>{pageNumber}</Text>
-          <TouchableOpacity onPress={() => handlePage("next")}><Text style={styles.button}>{`>`}</Text></TouchableOpacity>
+      <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', paddingHorizontal: 10 }}>
+        <View style={{ flexDirection: 'row', gap: 4 }}>
+          <SearchInput shown={false} />
+          <TouchableOpacity style={{ elevation: 3, backgroundColor: "#fff", borderRadius: 20, padding: 10, justifyContent: 'center', alignItems: "center" }}>
+            <SvgUri
+              width={25}
+              height={25}
+              stroke={'red'}
+              strokeWidth={0.4}
+              uri={`https://www.svgrepo.com/show/524063/heart.svg`}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.paginatedContainer}>
+          <View style={styles.pagination}>
+            <TouchableOpacity onPress={() => handlePage("prev")}><Text style={styles.button}>{`<`}</Text></TouchableOpacity>
+            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{pageNumber}</Text>
+            <TouchableOpacity onPress={() => handlePage("next")}><Text style={styles.button}>{`>`}</Text></TouchableOpacity>
+          </View>
         </View>
       </View>
       <ScrollView>

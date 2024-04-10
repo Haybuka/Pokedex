@@ -35,8 +35,8 @@ const Pokemon = () => {
                   title: route.params.name[0].toUpperCase() + route.params.name.slice(1),
                   headerTitleStyle: {
                     fontWeight: 'normal',
-
-                  }
+                  },
+                  headerShown: false
                 }
               )
             }

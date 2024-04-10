@@ -3,7 +3,6 @@ import { StyleSheet, StatusBar, SafeAreaView, ScrollView, View, Text, TouchableO
 import Header from '../header'
 import SearchInput from '../search'
 import PokieCardList from '../pokieCardList'
-import PokieTypesList from '../pokieTypesList'
 import { useGetPokemons } from '../../../api/pokemon'
 
 
@@ -32,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
     }
   }
 
-  console.log(data.results)
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -45,8 +44,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
       </View>
       <ScrollView>
-        {/* <PokieTypesList /> */}
-        <PokieCardList pokemons={data.results} loading={isLoading} error={isError} />
+        <PokieCardList pokemons={data?.results} loading={isLoading} error={isError} />
       </ScrollView>
 
 

@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native'
 
 const PokieCard = ({ name, url }) => {
   const navigation = useNavigation()
-  // console.log({ navigation })
   let padValue = Number(padTo(url))
   return (
     <TouchableOpacity onPress={() => navigation.navigate("About", { name, url })} style={[styles.container, styles.elevation, { backgroundColor: randomBackground() }]}>

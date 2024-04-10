@@ -1,14 +1,16 @@
 import React from 'react'
 import { ActivityIndicator, FlatList, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome } from "@expo/vector-icons"
-import useGetPokemonAbout from '../hooks/useGetPokemonAbout'
 import { padTo } from '../../../utils/padTo'
+import { useGetPokemonSpecies } from '../../../api/pokemon'
 
 
 const AboutEvolution = ({ open, handleClose, id }) => {
+  const { data: about, isLoading: loading, error } = useGetPokemonSpecies(id)
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
-  const { loading, about, error } = useGetPokemonAbout(id)
+
+
   const varieties = about.varieties
   return (
     <Modal visible={open} presentationStyle='overFullScreen' animationType="slide">

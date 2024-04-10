@@ -1,6 +1,5 @@
-import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { getTypeDetails } from '../../../utils/typeDetails';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+
 
 const AboutAbilityView = ({ ability }) => {
 
@@ -17,15 +16,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     paddingHorizontal: 10,
-    // width: 100,
     paddingVertical: 5,
-    // shadowOffset: {
-    //   width: 5,
-    //   height: 10
-    // },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 4,
-    // elevation: 5,
     marginVertical: 10,
     backgroundColor: 'white',
     flexDirection: 'row',
@@ -37,9 +28,3 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize'
   }
 })
-
-// elevation: 5,
-// backgroundColor: 'white',
-// paddingHorizontal: 20,
-// paddingVertical: 10,
-// borderRadius: 20,

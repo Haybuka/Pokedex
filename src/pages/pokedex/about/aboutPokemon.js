@@ -1,14 +1,15 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
+
+import { ActivityIndicator, StyleSheet } from 'react-native'
 import { Text, View } from 'react-native'
-import useGetPokemonAbout from '../hooks/useGetPokemonAbout'
+import { useGetPokemonSpecies } from '../../../api/pokemon'
 
 const AboutPokemon = ({ id }) => {
 
+  const { data: about, isLoading: loading, error } = useGetPokemonSpecies(id)
 
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
-  const { loading, about, error } = useGetPokemonAbout(id)
+
   const randomId = Math.floor(Math.random() * about?.flavor_text_entries?.length) + 1
 
   return (
@@ -26,6 +27,5 @@ export default AboutPokemon
 const styles = StyleSheet.create({
   name: {
     fontSize: 18,
-    // textTransform: 'capitalize',
   }
 })

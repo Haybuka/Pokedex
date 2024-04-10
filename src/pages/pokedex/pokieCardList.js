@@ -1,12 +1,10 @@
 import React from 'react'
-import usePokieList from './hooks/usePokieList'
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native'
 import PokieCard from './pokieCard'
 
 
 
 const PokieCardList = ({ pokemons, loading, error }) => {
-  // const { loading, pokemons, error } = usePokieList(pageNumber)
 
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>
@@ -17,7 +15,6 @@ const PokieCardList = ({ pokemons, loading, error }) => {
       <FlatList
         ListEmptyComponent={<Text>List Emptied</Text>}
         data={pokemons}
-        // horizontalx
         keyExtractor={(item) => item?.name}
         ItemSeparatorComponent={<View style={{ marginVertical: 5 }}></View>}
         showsHorizontalScrollIndicator={false}

@@ -1,9 +1,9 @@
-import React from 'react'
+
 import { StyleSheet } from 'react-native'
 import { Text, View } from 'react-native'
 import { SvgUri } from 'react-native-svg';
 
-const AboutName = ({ name, padValue }) => {
+const AboutName = ({ padValue }) => {
   return (
     <View style={styles.container}>
       <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>

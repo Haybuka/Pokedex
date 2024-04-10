@@ -10,6 +10,7 @@ import {
 const Stack = createNativeStackNavigator();
 import HomeScreen from './src/pages/pokedex/screen/homeScreen';
 import AboutScreen from './src/pages/pokedex/screen/aboutScreen';
+import FavoriteScreen from './src/pages/pokedex/screen/FavoriteScreen';
 
 
 
@@ -40,6 +41,11 @@ const Pokemon = () => {
                 }
               )
             }
+          />
+          <Stack.Screen
+            name="Favorite"
+            component={FavoriteScreen}
+
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { StyleSheet, StatusBar, SafeAreaView, ScrollView, View, Text, TouchableOpacity, Modal } from 'react-native'
+import { useState } from 'react'
+import { StyleSheet, StatusBar, SafeAreaView, ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import { useGetPokemons } from '../../../api/pokemon'
+import { SvgUri } from 'react-native-svg';
 import Header from '../header'
 import SearchInput from '../search'
 import PokieCardList from '../pokieCardList'
-import { useGetPokemons } from '../../../api/pokemon'
-import { SvgUri } from 'react-native-svg';
 
 const HomeScreen = ({ navigation }) => {
 
@@ -16,15 +16,15 @@ const HomeScreen = ({ navigation }) => {
   const handlePage = (pageType) => {
     switch (pageType) {
       case "prev":
-        if (data?.previous !== null) {
+        if (data?.previous) {
           setPageNumber(pageNumber => pageNumber - 1);
-          setPage(data.previous)
+          setPage(data?.previous)
         }
         return;
       case "next":
         if (data?.next) {
           setPageNumber(pageNumber => pageNumber + 1)
-          setPage(data.next)
+          setPage(data?.next)
         }
         return;
       default:

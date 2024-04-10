@@ -15,13 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.chukwu00.pokemon"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chukwu00.pokemon"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +38,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/c2ab77cb-0d85-47a5-8dab-8176395bb8a7"
-    }
+    },
+    "owner": "chukwu00"
   }
 }

@@ -11,7 +11,8 @@ const AboutEvolution = ({ open, handleClose, id }) => {
   if (error) return <View><Text>{error}</Text></View>
 
 
-  const varieties = about.varieties
+  const varieties = about.varieties;
+  console.log(varieties)
   return (
     <Modal visible={open} presentationStyle='overFullScreen' animationType="slide">
       <View style={{ flex: 1, padding: 10 }}>
@@ -49,7 +50,7 @@ const AboutEvolution = ({ open, handleClose, id }) => {
                     height={200}
                   />
                 </View>
-                <Text style={{ textAlign: 'center', fontSize: 18, textTransform: 'capitalize' }}>{item.pokemon.name} {padValue}</Text>
+                <Text style={{ textAlign: 'center', fontSize: 18, textTransform: 'capitalize', fontWeight: 'bold' }}>{item.pokemon.name} {padValue}</Text>
               </View>
             )
           }}
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     marginVertical: 10,
     backgroundColor: 'white',
-    borderRadius: 200,
+    borderRadius: 20,
     shadowColor: 'black',
     alignItems: 'center'
   }

@@ -33,6 +33,7 @@ const AboutScreen = ({ route, navigation }) => {
   const name = route?.params?.name;
   const url = route?.params?.url;
 
+  console.log(url)
   const { data: pokemon, error, isLoading: loading } = useGetPokemon(name)
   if (loading) return <ActivityIndicator size={'large'} />
   if (error) return <View><Text>{error}</Text></View>

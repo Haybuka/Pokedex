@@ -5,11 +5,16 @@ import { FontAwesome } from "@expo/vector-icons"
 const SearchInput = ({ shown, handlePress }) => {
 
   const [search, setSearch] = useState('');
+
+  const handleSearch = (term) => {
+    handlePress(term)
+    setSearch(term)
+  }
   return (
     shown ? (
       <TouchableOpacity style={styles.container}>
         <FontAwesome style={styles.icon} name='search' size={20} />
-        <TextInput style={styles.input} value={search} onChangeText={setSearch} />
+        <TextInput style={styles.input} value={search} onChangeText={handleSearch} />
       </TouchableOpacity>) :
       (
         <TouchableOpacity onPress={handlePress} style={{ elevation: 3, backgroundColor: "#fff", borderRadius: 20, paddingVertical: 10, paddingHorizontal: 6, justifyContent: 'center', alignItems: "center" }}>

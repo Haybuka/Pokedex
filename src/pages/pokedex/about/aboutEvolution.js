@@ -27,7 +27,7 @@ const AboutEvolution = ({ open, handleClose, id }) => {
           <Text>
             To get About :
             https://pokeapi.co/api/v2/pokemon-species/6/
-            also get species number from pokemon varieties
+            also get species number from pokemon variety
           </Text>
         </View>
         <FlatList
